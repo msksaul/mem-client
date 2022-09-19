@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
     borderRadius: '20px',
     objectFit: 'cover',
     width: '100%',
-    maxHeight: '600px',
+    maxHeight: '300px',
 
   },
   card: {
@@ -36,4 +36,22 @@ export default makeStyles((theme) => ({
   loadingPaper: {
     display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px', borderRadius: '15px', height: '39vh',
   },
+  commentsOuterContainer: {
+    display: 'flex', justifycontent: 'space-between',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
+  },
+  commentsInnerContainer: {
+    height: '200px', overflowY: 'auto', marginRight: '30px', width: '50%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+  },
+  commentText: {
+    width: '70%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+  }
 }));

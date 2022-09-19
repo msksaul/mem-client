@@ -5,7 +5,7 @@ import moment from 'moment'
 import { useParams, useHistory } from 'react-router-dom'
 
 import { getPost, getPostsBySearch } from '../../actions/posts'
-
+import CommentSection from './CommentSection'
 import useStyles from './styles'
 
 const PostDetails = () => {
@@ -49,9 +49,9 @@ const PostDetails = () => {
           <Typography variant="h6">Created by: {post.name}</Typography>
           <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
           <Divider style={{ margin: '20px 0' }} />
-          <Typography variant="body1"><strong>Realtime Chat - coming soon!</strong></Typography>
+          <Typography variant="body1"><strong>Leave a Comment!</strong></Typography>
           <Divider style={{ margin: '20px 0' }} />
-          <Typography variant="body1"><strong>Comments - coming soon!</strong></Typography>
+          <CommentSection post={post}/>
           <Divider style={{ margin: '20px 0' }} />
         </div>
         <div className={classes.imageSection}>
@@ -62,7 +62,7 @@ const PostDetails = () => {
           <div className={classes.section}>
             <Typography gutterBottom variant='h5' >You might also like:</Typography>
             <Divider />
-            <div className={classes.recomendedPosts}>
+            <div className={classes.recommendedPosts}>
               {recomendedPosts.map(({ title, message, name, likes, selectedFile, _id}) => (
                 <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={_id}>
                   <Typography gutterBottom variant='h6'>{title}</Typography>
